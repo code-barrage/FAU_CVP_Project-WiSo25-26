@@ -5,7 +5,7 @@ import numpy as np
 import os
 
 # --- CONFIGURATION ---
-IMAGE_NAME = "triangle.jpg"  # CHANGE THIS to your image filename
+IMAGE_NAME = "demo_seg2.png"  # CHANGE THIS to your image filename
 # ---------------------
 
 def run_sam_experiment():
@@ -22,7 +22,7 @@ def run_sam_experiment():
     # 3. Inference
     print("Running segmentation...")
     # conf=0.25 lowers the threshold, encouraging the model to 'guess' more
-    results = model(IMAGE_NAME, device='cpu', conf=0.25)
+    results = model(IMAGE_NAME, device='cpu', conf=0.10)
 
     # 4. Visualization
     for result in results:
