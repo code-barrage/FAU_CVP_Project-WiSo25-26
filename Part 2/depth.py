@@ -5,7 +5,7 @@ import numpy as np
 import os
 
 # --- CONFIGURATION ---
-IMAGE_NAME = "demo_depth.jpg"   # CHANGE THIS to your image filename
+IMAGE_NAME = "2.3.png"   # CHANGE THIS to your image filename
 # ---------------------
 
 def run_depth_experiment():
@@ -27,18 +27,18 @@ def run_depth_experiment():
     depth_map = result["depth"]
 
     # 4. Visualization
-    fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+    fig, ax = plt.subplots(1, 2, figsize=(10, 5))
     
     ax[0].imshow(image)
     ax[0].set_title("Original Image")
     ax[0].axis('off')
     
     # 'magma' is excellent for depth: Black=Far, Orange/White=Near
-    ax[1].imshow(depth_map, cmap='Spectral_r')
+    ax[1].imshow(depth_map, cmap='inferno')
     ax[1].set_title("Predicted Depth Map")
     ax[1].axis('off')
-    
-    output_file = f"result_depth_{IMAGE_NAME.split('.')[0]}.png"
+    plt.tight_layout()
+    output_file = f"result_depth_{IMAGE_NAME}.png"
     plt.savefig(output_file)
     print(f"Saved visualization to: {output_file}")
     plt.show()
